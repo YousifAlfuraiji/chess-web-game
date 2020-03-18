@@ -1,0 +1,87 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.jumbotron{
+    background-image: linear-gradient(125deg, #3498db, #9b59b6, #e74c3c, #34495e);
+    background-size: 400% 400%;
+    animation: bganimation 15s infinite;
+}
+
+@keyframes bganimation {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+.container .game{
+    background-color: cadetblue;
+    max-width: 750px;
+}
+.sidebar{
+    padding-top: 10px;
+}
+.board{
+    padding: 10px 25px;
+    display: inline-block;
+}
+
+.pieces{
+    padding: 0;
+    margin: 0;
+}
+
+.tile{
+    border: 1px solid black;
+    border-radius: 0;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    background-size: 37px 37px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+}
+
+.Rb{
+    background-image: url(pieces/rook_b.png);
+}
+.Rw{
+    background-image: url(pieces/rook_w.png);
+}
+.Bb{
+    background-image: url(pieces/bishop_b.png);
+}
+.Bw{
+    background-image: url(pieces/bishop_w.png);
+}
+.Nb{
+    background-image: url(pieces/knight_b.png);
+}
+.Nw{
+    background-image: url(pieces/knight_w.png);
+}
+.Kb{
+    background-image: url(pieces/king_b.png);
+}
+.Kw{
+    background-image: url(pieces/king_w.png);
+}
+.Qb{
+    background-image: url(pieces/queen_b.png);
+}
+.Qw{
+    background-image: url(pieces/queen_w.png);
+}
+.Pbs, .Pbf{
+    background-image: url(pieces/pawn_b.png);
+}
+.Pws, .Pwf{
+    background-image: url(pieces/pawn_w.png);
+}
