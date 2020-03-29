@@ -1,6 +1,7 @@
 body{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     background-color: cadetblue;
 }
 
@@ -24,13 +25,14 @@ body{
 .container .game{
     background-color: cadetblue;
     max-width: 750px;
+    display: flex;
 }
 .sidebar{
     padding-top: 10px;
 }
 .board{
     padding: 10px 25px;
-    display: inline-block;
+    display: flex;
 }
 
 .pieces{

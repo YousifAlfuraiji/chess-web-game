@@ -154,11 +154,8 @@ newgameElement.addEventListener("click", function(event){
 
 // Listen to player input
 gameContainer.addEventListener('click', function(e){
-    console.log(e.toElement.classList);
-    console.log(e.toElement.classList.item(2));
+
     if(e.toElement.classList.item(2) != 'tile'){
-        console.log("Heyooo");
-        console.log(e);
         return;
     }
     if(state == 'pick piece' && e.toElement.className[1] == turn){
