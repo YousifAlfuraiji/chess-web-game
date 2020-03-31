@@ -34,9 +34,9 @@ function initialize(){
     boardItems.forEach(boardItem => {
         let [x, y] = toBoardInices(boardItem.id);
         if(board[y][x] == ' ') 
-            boardItem.className = 'blank col tile';
+            boardItem.className = 'blank tile';
         else 
-            boardItem.className = board[y][x] + ' col tile';
+            boardItem.className = board[y][x] + ' tile';
     })
 }
 
@@ -155,12 +155,12 @@ newgameElement.addEventListener("click", function(event){
 // Listen to player input
 gameContainer.addEventListener('click', function(e){
 
-    if(e.toElement.classList.item(2) != 'tile'){
+    if(e.toElement.classList.item(1) != 'tile'){
         return;
     }
     if(state == 'pick piece' && e.toElement.className[1] == turn){
-        e.toElement.style.borderColor = 'red';
-
+        // e.toElement.style.borderColor = 'red';
+        e.toElement.style.backgroundColor = 'red';
         prevE = e;
         state ='move piece';
     }
@@ -173,43 +173,50 @@ gameContainer.addEventListener('click', function(e){
         if(e.toElement.className[1] == turn){
             document.getElementsByClassName("alert")[0].innerHTML = "Illegal Move. Retry.";
             state ='pick piece';
-            prevE.toElement.style.borderColor = 'black';
+            // prevE.toElement.style.borderColor = 'black';
+            prevE.toElement.style.backgroundColor = 'white';
             return;
         }
         if(prevE.toElement.className[0] == 'R' && !checkRook(prevE.toElement.className[1], xi, yi, xf, yf)){
             document.getElementsByClassName("alert")[0].innerHTML = "Illegal Move. Retry.";
             state ='pick piece';
-            prevE.toElement.style.borderColor = 'black';
+            // prevE.toElement.style.borderColor = 'black';
+            prevE.toElement.style.backgroundColor = 'white';
             return;
         }
         if(prevE.toElement.className[0] == 'K' && !checkKing(prevE.toElement.className[1], xi, yi, xf, yf)){
             document.getElementsByClassName("alert")[0].innerHTML = "Illegal Move. Retry.";
             state ='pick piece';
-            prevE.toElement.style.borderColor = 'black';
+            // prevE.toElement.style.borderColor = 'black';
+            prevE.toElement.style.backgroundColor = 'white';
             return;   
         }
         if(prevE.toElement.className[0] == 'B' && !checkBishop(prevE.toElement.className[1], xi, yi, xf, yf)){
             document.getElementsByClassName("alert")[0].innerHTML = "Illegal Move. Retry.";
             state ='pick piece';
-            prevE.toElement.style.borderColor = 'black';
+            // prevE.toElement.style.borderColor = 'black';
+            prevE.toElement.style.backgroundColor = 'white';
             return;   
         }
         if(prevE.toElement.className[0] == 'Q' && !checkQueen(prevE.toElement.className[1], xi, yi, xf, yf)){
             document.getElementsByClassName("alert")[0].innerHTML = "Illegal Move. Retry.";
             state ='pick piece';
-            prevE.toElement.style.borderColor = 'black';
+            // prevE.toElement.style.borderColor = 'black';
+            prevE.toElement.style.backgroundColor = 'white';
             return;   
         }
         if(prevE.toElement.className[0] == 'N' && !checkKnight(prevE.toElement.className[1], xi, yi, xf, yf)){
             document.getElementsByClassName("alert")[0].innerHTML = "Illegal Move. Retry.";
             state ='pick piece';
-            prevE.toElement.style.borderColor = 'black';
+            // prevE.toElement.style.borderColor = 'black';
+            prevE.toElement.style.backgroundColor = 'white';
             return;   
         }
         if(prevE.toElement.className[0] == 'P' && !checkPawn(prevE.toElement.className[1], xi, yi, xf, yf)){
             document.getElementsByClassName("alert")[0].innerHTML = "Illegal Move. Retry.";
             state ='pick piece';
-            prevE.toElement.style.borderColor = 'black';
+            // prevE.toElement.style.borderColor = 'black';
+            prevE.toElement.style.backgroundColor = 'white';
             return;   
         }
 
@@ -217,8 +224,9 @@ gameContainer.addEventListener('click', function(e){
         //e.toElement.name = prevE.toElement.name;
         e.toElement.className = prevE.toElement.className;
         //prevE.toElement.name = '';
-        prevE.toElement.className = 'blank col tile';
+        prevE.toElement.className = 'blank tile';
         prevE.toElement.style.borderColor = 'black';
+        prevE.toElement.style.backgroundColor = 'white';
 
         // Change board var
         board[yf][xf] = board[yi][xi];
