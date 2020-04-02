@@ -1,16 +1,11 @@
 $theme: #e74c3c;
+$sidebar-width: 300px;
 
 body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    // background-color: #dcdde1;
-    // background-image: url(bg4.jpg);
-    // // background-size: auto 100vh;
-    // background-size: cover;
-    // background-position:  20% 80%;
-    // background-repeat: no-repeat;
     background: url(city.jpg) center fixed;
     background-size: cover;
     background-position: 200px 0;
@@ -35,11 +30,28 @@ body {
         flex-direction: row;
         justify-content: center;
         margin-bottom: 10px;
-        .board {
+        #board {
             display: flex;
             flex-direction: column;
             border: 4px solid black;
+
             .horizontal {
+                &:nth-child(even){
+                    .cover:nth-child(odd) {
+                        background: white;
+                    }
+                    .cover:nth-child(even) {
+                        background: #bdc3c7;
+                    }   
+                }
+                &:nth-child(odd){
+                    .cover:nth-child(even) {
+                        background: white;
+                    }
+                    .cover:nth-child(odd) {
+                        background: #bdc3c7;
+                    }   
+                }
                 display: flex;
                 flex-direction: row;
                 .tile {
@@ -52,27 +64,41 @@ body {
                     background-size: 95% 95%;
                     background-repeat: no-repeat;
                     background-position: center;
-                    background-color: white;
+                    // background: white;
                 }
             }
         }
         .sidebar {
+            width: $sidebar-width;
+            max-height: 60 * 8px;
             margin-left: 10px;
-            .newgame {
+            display: flex;
+            flex-direction: column;
+            .newgame, .display, #message-input {
                 margin-bottom: 10px;
-                width: 200px;
+            }
+            .newgame {
                 .btn {
                     width: 100%;
                 }
             }
             .display {
-                width: 200px;
-                height: 40%;
                 .alert {
                     width: 100%;
                     height: 100%;
-                    color: white;
+                    color: black;
                     text-align: center;
+                }
+            }
+            #message-container {
+                margin-bottom: 5px;
+                flex: 1;
+                overflow-y: scroll;
+            }
+            #send-container {
+                display: flex;
+                #send-button {
+                    margin: 0px 0px 10px;
                 }
             }
             
@@ -83,7 +109,7 @@ body {
         .game {
             flex-direction: column;
             
-            .board {
+            #board {
                 margin: auto;
                 margin-bottom: 10px;
             }
@@ -99,7 +125,8 @@ body {
             }
         }
     }
-    .newgame .btn, .alert{
+    .newgame .btn, #send-button {
+        color: white;
         background-image: linear-gradient(125deg, #3498db, #9b59b6, #e74c3c, #f39c12);
         background-size: 400% 400%;
         animation: bganimation 8s infinite;
@@ -122,6 +149,7 @@ body {
 
 .Rb{
     background-image: url(pieces/rook_b.svg);
+    fill: red;
 }
 .Rw{
     background-image: url(pieces/rook_w.svg);
