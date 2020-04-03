@@ -1,0 +1,239 @@
+body {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+  background: url(images/city.jpg) center fixed;
+  background-size: cover;
+  background-position: 200px 0;
+}
+
+body .jumbotron {
+  color: white;
+  background-color: black;
+  opacity: 0.7;
+}
+
+body .jumbotron .container {
+  opacity: 1;
+}
+
+body .jumbotron .container .header {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+}
+
+body .jumbotron .container .github_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .jumbotron .container .github_button img {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+
+body .jumbotron .container .github_button p {
+  margin: 2px 0;
+}
+
+body .game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 10px;
+}
+
+body .game #board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 4px solid black;
+}
+
+body .game #board .horizontal {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+body .game #board .horizontal .tile {
+  border: 1px solid black;
+  width: 10vw;
+  height: 10vw;
+  max-width: 60px;
+  max-height: 60px;
+  background-size: 95% 95%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body .game .sidebar {
+  width: 300px;
+  max-height: 480px;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .game .sidebar .newgame, body .game .sidebar .display, body .game .sidebar #message-input {
+  margin-bottom: 10px;
+}
+
+body .game .sidebar .newgame .btn {
+  width: 100%;
+}
+
+body .game .sidebar .display .alert {
+  width: 100%;
+  height: 100%;
+  color: black;
+  text-align: center;
+}
+
+body .game .sidebar #message-container {
+  margin-bottom: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-y: scroll;
+}
+
+body .game .sidebar #send-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .game .sidebar #send-container #send-button {
+  margin: 0px 0px 10px;
+}
+
+@media only screen and (max-width: 700px) {
+  body .game {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .game #board {
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  body .game .sidebar .newgame {
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  body .game .sidebar .display {
+    margin: auto;
+  }
+}
+
+body .newgame .btn, body #send-button {
+  color: white;
+  background-image: linear-gradient(125deg, #3498db, #9b59b6, #e74c3c, #f39c12);
+  background-size: 400% 400%;
+  -webkit-animation: bganimation 8s infinite;
+          animation: bganimation 8s infinite;
+}
+
+@-webkit-keyframes bganimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bganimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.Rb {
+  background-image: url(images/rook_b.svg);
+  fill: red;
+}
+
+.Rw {
+  background-image: url(images/rook_w.svg);
+}
+
+.Bb {
+  background-image: url(images/bishop_b.svg);
+}
+
+.Bw {
+  background-image: url(images/bishop_w.svg);
+}
+
+.Nb {
+  background-image: url(images/knight_b.svg);
+}
+
+.Nw {
+  background-image: url(images/knight_w.svg);
+}
+
+.Kb {
+  background-image: url(images/king_b.svg);
+}
+
+.Kw {
+  background-image: url(images/king_w.svg);
+}
+
+.Qb {
+  background-image: url(images/queen_b.svg);
+}
+
+.Qw {
+  background-image: url(images/queen_w.svg);
+}
+
+.Pbs, .Pbf {
+  background-image: url(images/pawn_b.svg);
+}
+
+.Pws, .Pwf {
+  background-image: url(images/pawn_w.svg);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Chess Application</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+	<div class="jumbotron text-center">
+		<div class="container">
+			<div class="header">
+				<h1>Hello! Welcome to my first web project </h1>
+			</div>
+			<p>This is an interactive chess application creating using Javascript and Bootstrap. 
+				The code for this project can be found at my GitHub using the link below.</p>
+
+			<button class="btn btn-success">
+				<div class="github_button">
+					<img src="images/github.svg"></img>
+					<p>Read More</p>
+				</div>
+			</button>
+		</div>
+	</div> 
+	
+	<div class="game">
+		<div id= "board">
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a8"> </div></div>
+				<div class="cover"><div class="tile" id="b8"> </div></div>
+				<div class="cover"><div class="tile" id="c8"> </div></div>
+				<div class="cover"><div class="tile" id="d8"> </div></div>
+				<div class="cover"><div class="tile" id="e8"> </div></div>
+				<div class="cover"><div class="tile" id="f8"> </div></div>
+				<div class="cover"><div class="tile" id="g8"> </div></div>
+				<div class="cover"><div class="tile" id="h8"> </div></div>
+			</div>
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a7"> </div></div>
+				<div class="cover"><div class="tile" id="b7"> </div></div>
+				<div class="cover"><div class="tile" id="c7"> </div></div>
+				<div class="cover"><div class="tile" id="d7"> </div></div>
+				<div class="cover"><div class="tile" id="e7"> </div></div>
+				<div class="cover"><div class="tile" id="f7"> </div></div>
+				<div class="cover"><div class="tile" id="g7"> </div></div>
+				<div class="cover"><div class="tile" id="h7"> </div></div>
+			</div>
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a6"> </div></div>
+				<div class="cover"><div class="tile" id="b6"> </div></div>
+				<div class="cover"><div class="tile" id="c6"> </div></div>
+				<div class="cover"><div class="tile" id="d6"> </div></div>
+				<div class="cover"><div class="tile" id="e6"> </div></div>
+				<div class="cover"><div class="tile" id="f6"> </div></div>
+				<div class="cover"><div class="tile" id="g6"> </div></div>
+				<div class="cover"><div class="tile" id="h6"> </div></div>
+			</div>
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a5"> </div></div>
+				<div class="cover"><div class="tile" id="b5"> </div></div>
+				<div class="cover"><div class="tile" id="c5"> </div></div>
+				<div class="cover"><div class="tile" id="d5"> </div></div>
+				<div class="cover"><div class="tile" id="e5"> </div></div>
+				<div class="cover"><div class="tile" id="f5"> </div></div>
+				<div class="cover"><div class="tile" id="g5"> </div></div>
+				<div class="cover"><div class="tile" id="h5"> </div></div>
+			</div>
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a4"> </div></div>
+				<div class="cover"><div class="tile" id="b4"> </div></div>
+				<div class="cover"><div class="tile" id="c4"> </div></div>
+				<div class="cover"><div class="tile" id="d4"> </div></div>
+				<div class="cover"><div class="tile" id="e4"> </div></div>
+				<div class="cover"><div class="tile" id="f4"> </div></div>
+				<div class="cover"><div class="tile" id="g4"> </div></div>
+				<div class="cover"><div class="tile" id="h4"> </div></div>
+			</div>
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a3"> </div></div>
+				<div class="cover"><div class="tile" id="b3"> </div></div>
+				<div class="cover"><div class="tile" id="c3"> </div></div>
+				<div class="cover"><div class="tile" id="d3"> </div></div>
+				<div class="cover"><div class="tile" id="e3"> </div></div>
+				<div class="cover"><div class="tile" id="f3"> </div></div>
+				<div class="cover"><div class="tile" id="g3"> </div></div>
+				<div class="cover"><div class="tile" id="h3"> </div></div>
+			</div>
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a2"> </div></div>
+				<div class="cover"><div class="tile" id="b2"> </div></div>
+				<div class="cover"><div class="tile" id="c2"> </div></div>
+				<div class="cover"><div class="tile" id="d2"> </div></div>
+				<div class="cover"><div class="tile" id="e2"> </div></div>
+				<div class="cover"><div class="tile" id="f2"> </div></div>
+				<div class="cover"><div class="tile" id="g2"> </div></div>
+				<div class="cover"><div class="tile" id="h2"> </div></div>
+			</div>
+			<div class="horizontal">
+				<div class="cover"><div class="tile" id="a1"> </div></div>
+				<div class="cover"><div class="tile" id="b1"> </div></div>
+				<div class="cover"><div class="tile" id="c1"> </div></div>
+				<div class="cover"><div class="tile" id="d1"> </div></div>
+				<div class="cover"><div class="tile" id="e1"> </div></div>
+				<div class="cover"><div class="tile" id="f1"> </div></div>
+				<div class="cover"><div class="tile" id="g1"> </div></div>
+				<div class="cover"><div class="tile" id="h1"> </div></div>
+			</div>
+		</div>
+		<div class="sidebar">
+			<div class="newgame">
+				<button class="btn">New Game</button>
+			</div>
+			<div class="display">
+				<div class="alert alert-success" role="alert">White's turn</div>
+			</div>
+			<div class="alert alert-info" id="message-container"></div>
+			<form action="" id="send-container">
+				<input class="form-control" type="text" id="message-input">
+				<button class="btn" type="submit" id="send-button">Send</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Game Logic -->
+	<script type="module" src="app.js"></script>
+
+	<!-- Get access to the socket -->
+	<script src="/socket.io/socket.io.js"></script>
+
+	<!-- Connect client -->
+	<script src="script.js"></script>
+
+	<!-- Connect server -->
+	<!-- <script defer src="http://localhost:3000/socket.io/socket.io.js"></script> -->
+
+	<!-- Connect Client -->
+	<!-- <script defer src="script.js"></script> -->
+</body>
+</html>
