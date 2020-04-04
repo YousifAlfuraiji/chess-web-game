@@ -1,20 +1,21 @@
 import {checkMoveLegal, inCheck} from './legality-checks.js';
 
-
+const socket = io();
 
 function toAlgebraicNotation(x, y) {
-    let aN='  ';
-    aN[1] = 8 - y;
-    if(x == 0)      aN[0] == 'a';
-    else if(x == 1) aN[0] == 'b';
-    else if(x == 2) aN[0] == 'c';
-    else if(x == 3) aN[0] == 'd';
-    else if(x == 4) aN[0] == 'e';
-    else if(x == 5) aN[0] == 'f';
-    else if(x == 6) aN[0] == 'g';
-    else if(x == 7) aN[0] == 'h';
+    let index1, index2;
+    index2 = 8 - y;
 
-    return aN;
+    if(x == 0)      index1 = 'a';
+    else if(x == 1) index1 = 'b';
+    else if(x == 2) index1 = 'c';
+    else if(x == 3) index1 = 'd';
+    else if(x == 4) index1 = 'e';
+    else if(x == 5) index1 = 'f';
+    else if(x == 6) index1 = 'g';
+    else if(x == 7) index1 = 'h';
+
+    return index1 + index2;
 }
 
 function toBoardInices(aN){
@@ -65,10 +66,10 @@ function SetUpNewGame() {
 
 var board;
 
-var turn; // white's turn
+var turn; // player's turn
 var gameOver = false;
 var state; // either 'pick piece' or 'move piece'
-var prevE;
+var prevE; // keep track of previous events during clicking
 SetUpNewGame();
 
 const boardContainer = document.getElementById('board');
@@ -101,23 +102,19 @@ boardContainer.addEventListener('click', function(e){
             return;
         }
         inCheck(board, turn);
+
+
+        socket.emit('made-move', {xi: xi, xf: xf, yi: yi, yf: yf});
         
-
-        // Change board look
-        e.toElement.className = prevE.toElement.className;
-        prevE.toElement.className = 'blank tile';
-        prevE.toElement.style.borderColor = 'black';
-        prevE.toElement.style.backgroundColor = 'white';
-
-        // Change board var
-        board[yf][xf] = board[yi][xi];
-        board[yi][xi] = ' ';
+        const from = prevE.toElement;
+        const to = e.toElement;
+        
+        changeBoard(from, to, xi, xf, yi, yf);
 
         // Change turns
         if(turn == 'w'){
             turn = 'b';
             document.getElementsByClassName("alert")[0].innerHTML = "Black's Turn";
-
         }
         else{
             turn = 'w';
@@ -125,5 +122,32 @@ boardContainer.addEventListener('click', function(e){
         }
 
         state = 'pick piece';
+        console.log(board);
     }
 });
+
+
+socket.on('apply-move', move => {
+    const fromAN = toAlgebraicNotation(move.xi, move.yi);
+    const from = document.getElementById(fromAN);
+
+    const toAN = toAlgebraicNotation(move.xf, move.yf);
+    const to = document.getElementById(toAN);
+
+    changeBoard(from, to, move.xi, move.xf, move.yi, move.yf);
+
+});
+
+
+
+function changeBoard(from, to, xi, xf, yi, yf) {
+
+    // Change board look
+    to.className = from.className;
+    from.className = 'blank tile';
+    from.style.backgroundColor = 'white';
+
+    // Change board var
+    board[yf][xf] = board[yi][xi];
+    board[yi][xi] = ' ';
+}

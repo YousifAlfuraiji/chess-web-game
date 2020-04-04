@@ -10,30 +10,29 @@ const io = socketio(server);
 // Set static folder
 app.use(express.static(path.join(__dirname, '/public')));
 
-// Run when client connects
-io.on('connection', socket => {
-    console.log('New WS Connection....');
-});
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000 || process.env.PORT;
-
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
-// const io = require('socket.io')(PORT)
-const users = {}
+const users = {};
 
 io.on('connection', socket => {
+    console.log('New Connection....');
+
     socket.on('new-user', name => {
-        users[socket.id] = name
-        socket.broadcast.emit('user-connected', name)
-    })
+        users[socket.id] = name;
+        socket.broadcast.emit('user-connected', name);
+    });
     socket.on('send-chat-message', message => {
-        socket.broadcast.emit('chat-message', {message: message, name: users[socket.id] })
-    })
+        socket.broadcast.emit('chat-message', {message: message, name: users[socket.id] });
+    });
+    socket.on('made-move', move => {
+        socket.broadcast.emit('apply-move', move);
+    });
     socket.on('disconnect', () => {
-        socket.broadcast.emit('user-disconnected', users[socket.id])
-        delete users[socket.id]
-    })
-})
+        socket.broadcast.emit('user-disconnected', users[socket.id]);
+        delete users[socket.id];
+    });
+});
 
